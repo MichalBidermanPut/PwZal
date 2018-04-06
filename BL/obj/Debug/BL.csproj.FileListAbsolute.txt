@@ -1,0 +1,13 @@
+C:\Users\szmii\source\repos\PwZal\BL\bin\Debug\BL.dll
+C:\Users\szmii\source\repos\PwZal\BL\bin\Debug\BL.pdb
+C:\Users\szmii\source\repos\PwZal\BL\bin\Debug\CORE.dll
+C:\Users\szmii\source\repos\PwZal\BL\bin\Debug\DAO.dll
+C:\Users\szmii\source\repos\PwZal\BL\bin\Debug\INTERFACES.dll
+C:\Users\szmii\source\repos\PwZal\BL\bin\Debug\CORE.pdb
+C:\Users\szmii\source\repos\PwZal\BL\bin\Debug\DAO.pdb
+C:\Users\szmii\source\repos\PwZal\BL\bin\Debug\INTERFACES.pdb
+C:\Users\szmii\source\repos\PwZal\BL\obj\Debug\BL.csprojResolveAssemblyReference.cache
+C:\Users\szmii\source\repos\PwZal\BL\obj\Debug\BL.csproj.CoreCompileInputs.cache
+C:\Users\szmii\source\repos\PwZal\BL\obj\Debug\BL.csproj.CopyComplete
+C:\Users\szmii\source\repos\PwZal\BL\obj\Debug\BL.dll
+C:\Users\szmii\source\repos\PwZal\BL\obj\Debug\BL.pdb
