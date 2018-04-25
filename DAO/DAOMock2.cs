@@ -7,19 +7,19 @@ using System.Threading.Tasks;
 
 namespace Biderman.PwZal.DAO
 {
-    public class DAOMock : IDAO
+    class DAOMock2 : IDAO
     {
-        private IProduct[] _products;
-        private IManufacturer[] _manufacturers;
-        public DAOMock()
+        IProduct[] _products;
+        IManufacturer[] _manufacturers;
+        public DAOMock2()
         {
-            int SIZE=20;
-            _products = new Product[SIZE];
+            int SIZE = 50;
+            _products =  (new Product[SIZE]);
             _manufacturers = new Manufacturer[SIZE];
             for (int i = 0; i < SIZE; i++)
             {
-                _products[i] = new Product("Produkt nr:" + i.ToString(), i);
-                _manufacturers[i] = new Manufacturer("Producent nr:" + i.ToString(), i);
+                _products[i] = new Product("Inny produkt nr:" + i.ToString(), i);
+                _manufacturers[i] = new Manufacturer("Inny producent nr:" + i.ToString(), i);
             }
         }
 

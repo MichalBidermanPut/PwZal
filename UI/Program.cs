@@ -8,15 +8,14 @@ using Biderman.PwZal.DAO;
 
 namespace Biderman.PwZal.UI
 {
-    class Program
+    public class Program
     {
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
             IBL _bl = new BL.BL();
+            char c = 'h';
             while (true)
             {
-                char c = Console.ReadKey().KeyChar;
-                Console.WriteLine("");
                 if (c == 'm')
                 {
                     foreach (IManufacturer manuf in _bl.GetAllManufs())
@@ -36,6 +35,19 @@ namespace Biderman.PwZal.UI
                 {
                     break;
                 }
+                else if (c == 'q')
+                {
+                    break;
+                }
+                else if (c == 'h')
+                {
+                    Console.WriteLine(@"Press 'm' to show Manufacturers");
+                    Console.WriteLine(@"Press 'p' to show Products");
+                    Console.WriteLine(@"Press 'h' to show help");
+                    Console.WriteLine(@"Press 'q' or 'x' to exit");
+                }
+                c = Console.ReadKey().KeyChar;
+                Console.WriteLine("");
             }
         }
     }

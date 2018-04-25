@@ -9,7 +9,7 @@ namespace Biderman.PwZal.BL
 {
     public interface IBL
     {
-        IManufacturer[] GetAllManufs();
-        IProduct[] GetAllProducts();
+        ICollection<IManufacturer> GetAllManufs();
+        ICollection<IProduct> GetAllProducts();
     }
 }

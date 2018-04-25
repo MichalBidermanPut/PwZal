@@ -9,3 +9,14 @@ C:\Users\szmii\source\repos\PwZal\DAO\obj\Debug\DAO.csproj.CoreCompileInputs.cac
 C:\Users\szmii\source\repos\PwZal\DAO\obj\Debug\DAO.csproj.CopyComplete
 C:\Users\szmii\source\repos\PwZal\DAO\obj\Debug\DAO.dll
 C:\Users\szmii\source\repos\PwZal\DAO\obj\Debug\DAO.pdb
+C:\Users\szmii\Documents\GitHub\PwZal\DAO\bin\Debug\DAO.dll
+C:\Users\szmii\Documents\GitHub\PwZal\DAO\bin\Debug\DAO.pdb
+C:\Users\szmii\Documents\GitHub\PwZal\DAO\bin\Debug\CORE.dll
+C:\Users\szmii\Documents\GitHub\PwZal\DAO\bin\Debug\INTERFACES.dll
+C:\Users\szmii\Documents\GitHub\PwZal\DAO\bin\Debug\CORE.pdb
+C:\Users\szmii\Documents\GitHub\PwZal\DAO\bin\Debug\INTERFACES.pdb
+C:\Users\szmii\Documents\GitHub\PwZal\DAO\obj\Debug\DAO.csprojResolveAssemblyReference.cache
+C:\Users\szmii\Documents\GitHub\PwZal\DAO\obj\Debug\DAO.csproj.CoreCompileInputs.cache
+C:\Users\szmii\Documents\GitHub\PwZal\DAO\obj\Debug\DAO.csproj.CopyComplete
+C:\Users\szmii\Documents\GitHub\PwZal\DAO\obj\Debug\DAO.dll
+C:\Users\szmii\Documents\GitHub\PwZal\DAO\obj\Debug\DAO.pdb
