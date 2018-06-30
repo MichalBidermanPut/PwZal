@@ -1,0 +1,11 @@
+C:\Users\szmii\Documents\GitHub\PwZal\DAO\bin\Release\DAO.dll
+C:\Users\szmii\Documents\GitHub\PwZal\DAO\bin\Release\DAO.pdb
+C:\Users\szmii\Documents\GitHub\PwZal\DAO\bin\Release\CORE.dll
+C:\Users\szmii\Documents\GitHub\PwZal\DAO\bin\Release\INTERFACES.dll
+C:\Users\szmii\Documents\GitHub\PwZal\DAO\bin\Release\CORE.pdb
+C:\Users\szmii\Documents\GitHub\PwZal\DAO\bin\Release\INTERFACES.pdb
+C:\Users\szmii\Documents\GitHub\PwZal\DAO\obj\Release\DAO.csprojResolveAssemblyReference.cache
+C:\Users\szmii\Documents\GitHub\PwZal\DAO\obj\Release\DAO.csproj.CoreCompileInputs.cache
+C:\Users\szmii\Documents\GitHub\PwZal\DAO\obj\Release\DAO.csproj.CopyComplete
+C:\Users\szmii\Documents\GitHub\PwZal\DAO\obj\Release\DAO.dll
+C:\Users\szmii\Documents\GitHub\PwZal\DAO\obj\Release\DAO.pdb

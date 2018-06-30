@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Biderman.PwZal.BL;
+﻿using Biderman.PwZal.BL;
+using Biderman.PwZal.CORE;
 using Biderman.PwZal.DAO;
+using System;
 
 namespace Biderman.PwZal.UI
 {
@@ -12,7 +9,7 @@ namespace Biderman.PwZal.UI
     {
         public static void Main(string[] args)
         {
-            IBL _bl = new BL.BL();
+            IBL _bl = new BL.BuisnessLogic();
             char c = 'h';
             while (true)
             {

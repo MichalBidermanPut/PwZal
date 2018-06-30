@@ -1,0 +1,9 @@
+C:\Users\szmii\Documents\GitHub\PwZal\INTERFACES\bin\Release\INTERFACES.dll
+C:\Users\szmii\Documents\GitHub\PwZal\INTERFACES\bin\Release\INTERFACES.pdb
+C:\Users\szmii\Documents\GitHub\PwZal\INTERFACES\bin\Release\CORE.dll
+C:\Users\szmii\Documents\GitHub\PwZal\INTERFACES\bin\Release\CORE.pdb
+C:\Users\szmii\Documents\GitHub\PwZal\INTERFACES\obj\Release\INTERFACES.csprojResolveAssemblyReference.cache
+C:\Users\szmii\Documents\GitHub\PwZal\INTERFACES\obj\Release\INTERFACES.csproj.CoreCompileInputs.cache
+C:\Users\szmii\Documents\GitHub\PwZal\INTERFACES\obj\Release\INTERFACES.csproj.CopyComplete
+C:\Users\szmii\Documents\GitHub\PwZal\INTERFACES\obj\Release\INTERFACES.dll
+C:\Users\szmii\Documents\GitHub\PwZal\INTERFACES\obj\Release\INTERFACES.pdb

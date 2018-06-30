@@ -1,0 +1,14 @@
+C:\Users\szmii\Documents\GitHub\PwZal\BL\bin\Release\BL.dll.config
+C:\Users\szmii\Documents\GitHub\PwZal\BL\bin\Release\BL.dll
+C:\Users\szmii\Documents\GitHub\PwZal\BL\bin\Release\BL.pdb
+C:\Users\szmii\Documents\GitHub\PwZal\BL\bin\Release\CORE.dll
+C:\Users\szmii\Documents\GitHub\PwZal\BL\bin\Release\DAO.dll
+C:\Users\szmii\Documents\GitHub\PwZal\BL\bin\Release\INTERFACES.dll
+C:\Users\szmii\Documents\GitHub\PwZal\BL\bin\Release\CORE.pdb
+C:\Users\szmii\Documents\GitHub\PwZal\BL\bin\Release\DAO.pdb
+C:\Users\szmii\Documents\GitHub\PwZal\BL\bin\Release\INTERFACES.pdb
+C:\Users\szmii\Documents\GitHub\PwZal\BL\obj\Release\BL.csprojResolveAssemblyReference.cache
+C:\Users\szmii\Documents\GitHub\PwZal\BL\obj\Release\BL.csproj.CoreCompileInputs.cache
+C:\Users\szmii\Documents\GitHub\PwZal\BL\obj\Release\BL.csproj.CopyComplete
+C:\Users\szmii\Documents\GitHub\PwZal\BL\obj\Release\BL.dll
+C:\Users\szmii\Documents\GitHub\PwZal\BL\obj\Release\BL.pdb

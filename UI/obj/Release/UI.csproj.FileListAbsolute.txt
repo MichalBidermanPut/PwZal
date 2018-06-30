@@ -1,0 +1,15 @@
+C:\Users\szmii\Documents\GitHub\PwZal\UI\bin\Release\UI.exe.config
+C:\Users\szmii\Documents\GitHub\PwZal\UI\bin\Release\UI.exe
+C:\Users\szmii\Documents\GitHub\PwZal\UI\bin\Release\UI.pdb
+C:\Users\szmii\Documents\GitHub\PwZal\UI\bin\Release\BL.dll
+C:\Users\szmii\Documents\GitHub\PwZal\UI\bin\Release\CORE.dll
+C:\Users\szmii\Documents\GitHub\PwZal\UI\bin\Release\INTERFACES.dll
+C:\Users\szmii\Documents\GitHub\PwZal\UI\bin\Release\BL.pdb
+C:\Users\szmii\Documents\GitHub\PwZal\UI\bin\Release\BL.dll.config
+C:\Users\szmii\Documents\GitHub\PwZal\UI\bin\Release\CORE.pdb
+C:\Users\szmii\Documents\GitHub\PwZal\UI\bin\Release\INTERFACES.pdb
+C:\Users\szmii\Documents\GitHub\PwZal\UI\obj\Release\UI.csprojResolveAssemblyReference.cache
+C:\Users\szmii\Documents\GitHub\PwZal\UI\obj\Release\UI.csproj.CoreCompileInputs.cache
+C:\Users\szmii\Documents\GitHub\PwZal\UI\obj\Release\UI.csproj.CopyComplete
+C:\Users\szmii\Documents\GitHub\PwZal\UI\obj\Release\UI.exe
+C:\Users\szmii\Documents\GitHub\PwZal\UI\obj\Release\UI.pdb

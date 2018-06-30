@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Biderman.PwZal.DAO
+﻿namespace Biderman.PwZal.CORE
 {
     public interface IManufacturer
     {

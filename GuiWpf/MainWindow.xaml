@@ -1,0 +1,104 @@
+﻿<Window x:Class="GuiWpf.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GuiWpf"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800"
+        >
+
+    <Window.DataContext>
+        <local:MainProgramView/>
+    </Window.DataContext>
+    <Grid>
+        <TabControl Name="MyTabs" TabStripPlacement="Top" Background="LightGray">
+            <TabItem Header="Manufacturers" IsSelected="True" Background="Gray">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+
+                    <ListBox x:Name="ManufList" HorizontalContentAlignment="Stretch" SelectionMode="Extended" Grid.Row="0" Grid.Column="0" 
+                             ItemsSource="{Binding ManufCollection}" SelectedItem="{Binding CurrManuf, Mode=TwoWay}">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <Grid Name="ManufRowTemplate">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="50"/>
+                                        <ColumnDefinition/>
+                                    </Grid.ColumnDefinitions>
+                                    <TextBlock x:Name="xId" Text="{Binding Path=Id}" Grid.Column="0"/>
+                                    <TextBlock x:Name="xNazwa" Text="{Binding Path=Nazwa}" Grid.Column="1"/>
+                                </Grid>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+
+                    <Grid Name="MyDisplayManuf" Grid.Row="0" Grid.Column="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="50"/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="20" />
+                            <RowDefinition Height="20"/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <TextBlock Text="Id:" Grid.Row="0" Grid.Column="0" />
+                        <TextBlock Text="{Binding CurrManuf.Id}" Grid.Row="0" Grid.Column="1" />
+                        <TextBlock Text="Nazwa:" Grid.Row="1" Grid.Column="0" />
+                        <TextBox Text="{Binding CurrManuf.Nazwa}" Grid.Row="1" Grid.Column="1" />
+                    </Grid>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Products" Background="Gray">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+
+                    <ListBox x:Name="ProductList" HorizontalContentAlignment="Stretch" SelectionMode="Extended" Grid.Row="0" Grid.Column="0" 
+                             ItemsSource="{Binding ProductCollection}" SelectedItem="{Binding CurrProduct, Mode=TwoWay}">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <Grid Name="ProductRowTemplate">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="50"/>
+                                        <ColumnDefinition/>
+                                    </Grid.ColumnDefinitions>
+                                    <TextBlock x:Name="xId" Text="{Binding Path=Id}" Grid.Column="0"/>
+                                    <TextBlock x:Name="xNazwa" Text="{Binding Path=Nazwa}" Grid.Column="1"/>
+                                </Grid>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+
+                    <Grid Name="MyDisplayProduct" Grid.Row="0" Grid.Column="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="50"/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="20" />
+                            <RowDefinition Height="20"/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <TextBlock Text="Id:" Grid.Row="0" Grid.Column="0" />
+                        <TextBlock Text="{Binding CurrProduct.Id, Mode=TwoWay}" Grid.Row="0" Grid.Column="1" />
+                        <TextBlock Text="Nazwa:" Grid.Row="1" Grid.Column="0" />
+                        <TextBox Text="{Binding CurrProduct.Nazwa, Mode=TwoWay}" Grid.Row="1" Grid.Column="1" />
+                    </Grid>
+                </Grid>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>
