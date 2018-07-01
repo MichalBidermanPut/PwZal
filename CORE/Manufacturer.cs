@@ -18,5 +18,10 @@ namespace Biderman.PwZal.CORE
             _nazwa = nazwa;
             _id = -1;
         }
+        public Manufacturer(IManufacturer m)
+        {
+            _nazwa = m.Nazwa;
+            _id = m.Id;
+        }
     }
 }

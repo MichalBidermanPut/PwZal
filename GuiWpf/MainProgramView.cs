@@ -4,6 +4,7 @@ using GuiWpf.Properties;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Windows;
 using System.Windows.Input;
 
 namespace GuiWpf 
@@ -13,12 +14,11 @@ namespace GuiWpf
         private IBL _bl;
         private ICollection<IManufacturer> _manufCollection;
         private ICollection<IProduct> _productCollection;
+        private ObservableCollection<IManufacturer> _observableManufCollection;
         private IManufacturer _currManuf;
         private IProduct _currProduct;
         private IManufacturer _tmpManuf;
         private IProduct _tmpProduct;
-        //private bool _tmpProductHidden=true;
-        //private bool _tmpManufHidden=true;
         public MainProgramView()
         {
             _bl = new BuisnessLogic(Settings.Default.DataBaseAdress, Settings.Default.DataBaseName);
@@ -28,6 +28,11 @@ namespace GuiWpf
             _currProduct = null;
             _tmpManuf = new Manufacturer("");
             _tmpProduct = new Product("");
+            _observableManufCollection = new ObservableCollection<IManufacturer>();
+            foreach(var e in _manufCollection)
+            {
+                if (e != null) _observableManufCollection.Add(new Manufacturer(e));
+            }
         }
         public ICommand AddProductCommand
         {
@@ -37,24 +42,26 @@ namespace GuiWpf
         {
             if (_tmpProduct.Id < 0)
             {
-                throw new ArgumentException("Negqtive Id");
+                MessageBox.Show("The Id field shouldn't have negative value");
+                return;
             }
             else{
                 foreach(var e in _productCollection)
                 {
                     if (e.Id== _tmpProduct.Id)
                     {
-                        throw new ArgumentException("Repeated Id");
+                        MessageBox.Show("The Id can't have a repeated value");
+                        return;
                     }
                 }
                 _bl.AddProduct(_tmpProduct);
                 _productCollection = new LinkedList<IProduct>();
                 foreach (var e in _bl.GetAllProducts())
                 {
-                    _productCollection.Add(e);
+                    if (e != null) _productCollection.Add(e);
                 }
                 RaisePropertyChangedEvent("ProductCollection");
-
+                _tmpProduct = new Product("", 0);
             }
 
         }
@@ -64,11 +71,11 @@ namespace GuiWpf
         }
         private void RemoveProduct()
         {
-            _bl.RemoveProduct(_tmpProduct);
+            _bl.RemoveProduct(_currProduct);
             _productCollection = new LinkedList<IProduct>();
             foreach (var e in _bl.GetAllProducts())
             {
-                _productCollection.Add(e);
+                if (e != null) _productCollection.Add(e);
             }
             RaisePropertyChangedEvent("ProductCollection");
         }
@@ -78,14 +85,30 @@ namespace GuiWpf
         }
         private void AddManuf()
         {
-            _bl.AddManuf(_tmpManuf);
-            _manufCollection = new LinkedList<IManufacturer>();
-            foreach (var e in _bl.GetAllManufs())
+            if (_tmpManuf.Id < 0)
             {
-                _manufCollection.Add(e);
+                MessageBox.Show("The Id field shouldn't have negative value");
+                return;
             }
-            RaisePropertyChangedEvent("ManufCollection");
-
+            else
+            {
+                foreach (var e in _manufCollection)
+                {
+                    if (e.Id == _tmpManuf.Id)
+                    {
+                        MessageBox.Show("The Id can't have a repeated value");
+                        return;
+                    }
+                }
+                _bl.AddManuf(_tmpManuf);
+                _manufCollection = new LinkedList<IManufacturer>();
+                foreach (var e in _bl.GetAllManufs())
+                {
+                    if (e != null) _manufCollection.Add(e);
+                }
+                _tmpManuf = new Manufacturer("", 0);
+                RaisePropertyChangedEvent("ManufCollection");
+            }
         }
         public ICommand RemoveManufCommand
         {
@@ -93,15 +116,14 @@ namespace GuiWpf
         }
         private void RemoveManuf()
         {
-            _bl.RemoveManuf(_tmpManuf);
+            _bl.RemoveManuf(_currManuf);
             _manufCollection = new LinkedList<IManufacturer>();
-            foreach(var e in _bl.GetAllManufs())
+            foreach (var e in _bl.GetAllManufs())
             {
-                _manufCollection.Add(e);
+                if (e != null) _manufCollection.Add(e);
             }
             RaisePropertyChangedEvent("ManufCollection");
         }
-        public ObservableCollection<IManufacturer> ObsManufCollection = null;
         public ICollection<IManufacturer> ManufCollection
         {
             get

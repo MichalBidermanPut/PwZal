@@ -24,7 +24,7 @@
                     </Grid.ColumnDefinitions>
 
                     <ListBox x:Name="ManufList" HorizontalContentAlignment="Stretch" SelectionMode="Extended" Grid.Row="0" Grid.Column="0" 
-                             ItemsSource="{Binding ManufCollection}" SelectedItem="{Binding CurrManuf}">
+                             ItemsSource="{Binding ManufCollection, Mode=TwoWay}" SelectedItem="{Binding CurrManuf}" AllowDrop="True">
                         <ListBox.ItemTemplate>
                             <DataTemplate>
                                 <Grid Name="ManufRowTemplate">
@@ -90,16 +90,18 @@
                     </Grid.ColumnDefinitions>
 
                     <ListBox x:Name="ProductList" HorizontalContentAlignment="Stretch" SelectionMode="Extended" Grid.Row="0" Grid.Column="0" 
-                             ItemsSource="{Binding ProductCollection}" SelectedItem="{Binding CurrProduct}">
+                             ItemsSource="{Binding ProductCollection, Mode=TwoWay}" SelectedItem="{Binding CurrProduct}">
                         <ListBox.ItemTemplate>
                             <DataTemplate>
                                 <Grid Name="ProductRowTemplate">
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="50"/>
                                         <ColumnDefinition/>
+                                        <ColumnDefinition Width="100"/>
                                     </Grid.ColumnDefinitions>
                                     <TextBlock x:Name="xId" Text="{Binding Path=Id}" Grid.Column="0"/>
                                     <TextBlock x:Name="xNazwa" Text="{Binding Path=Nazwa}" Grid.Column="1"/>
+                                    <TextBlock x:Name="xState" Text="{Binding Path=Stan}" Grid.Column="3"/>
                                 </Grid>
                             </DataTemplate>
                         </ListBox.ItemTemplate>
@@ -141,7 +143,7 @@
                         <TextBlock Text="Nazwa:" Grid.Row="7" Grid.Column="0" />
                         <TextBox Text="{Binding TmpProduct.Nazwa, Mode=TwoWay}" Grid.Row="7" Grid.Column="1" />
                         <TextBlock Text="Stan:" Grid.Row="8" Grid.Column="0" />
-                        <TextBox Text="{Binding TmpProduct.Stan}" Grid.Row="8" Grid.Column="1" />
+                        <ComboBox Name="StatesComboBox" Text="{Binding TmpProduct.Stan}" Grid.Row="8" Grid.Column="1" />
                         <Grid Grid.Row="9" Grid.Column="1" >
                             <Grid Width="80" Height="40" HorizontalAlignment="Right" VerticalAlignment="Top">
                                 <Button Command="{Binding AddProductCommand, ValidatesOnExceptions=True}" Content="Add" Width="60" Height="25"/>

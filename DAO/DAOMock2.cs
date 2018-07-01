@@ -64,24 +64,29 @@ namespace Biderman.PwZal.DAO
 
         public void RemoveManuf(IManufacturer manufacturer)
         {
-            foreach(var e in _manufacturers)
+            LinkedList<IManufacturer> manufacturers_tmp = new LinkedList<IManufacturer>();
+            foreach (var e in _manufacturers)
             {
-                if (e.Id == manufacturer.Id)
+                if(e!=null && manufacturer!=null)if (e.Id != manufacturer.Id)
                 {
-                    _manufacturers.Remove(e);
+                    manufacturers_tmp.AddLast(e);
                 }
             }
+            _manufacturers = manufacturers_tmp;
         }
 
         public void RemoveProduct(IProduct product)
         {
+            LinkedList<IProduct> products_tmp = new LinkedList<IProduct>();
             foreach (var e in _products)
             {
-                if (e.Id == product.Id)
+                if (e.Id != product.Id)
                 {
-                    _products.Remove(e);
+                    products_tmp.AddLast(e);
+                    //_products.Remove(e);
                 }
             }
+            _products = products_tmp;
         }
     }
 }

@@ -1,6 +1,9 @@
 ﻿using Biderman.PwZal.BL;
+using Biderman.PwZal.CORE;
 using Biderman.PwZal.DAO;
+using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Windows;
 
 namespace GuiWpf
@@ -21,6 +24,7 @@ namespace GuiWpf
         public MainWindow()
         {
             InitializeComponent();
+            StatesComboBox.ItemsSource = Enum.GetValues(typeof(State)).Cast<State>();
             //manufListView = new ManufListView(_bl.GetAllManufs());
             //ManufList.ItemsSource = ManufCollection;
         }
