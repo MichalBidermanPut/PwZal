@@ -10,8 +10,8 @@ namespace Biderman.PwZal.DAO
 {
     class DAOMock2 : IDAO
     {
-        List<IProduct> _products;
-        List<IManufacturer> _manufacturers;
+        LinkedList<IProduct> _products;
+        LinkedList<IManufacturer> _manufacturers;
         public DAOMock2()
         {
             int SIZE = 50;
@@ -22,28 +22,34 @@ namespace Biderman.PwZal.DAO
                 products[i] = new Product("Inny produkt nr:" + i.ToString(), i);
                 manufacturers[i] = new Manufacturer("Inny producent nr:" + i.ToString(), i);
             }
-            _products = new List<IProduct>(products);
-            _manufacturers = new List<IManufacturer>(manufacturers);
+            _products = new LinkedList<IProduct>(products);
+            _manufacturers = new LinkedList<IManufacturer>(manufacturers);
         }
 
         public void AddManuf(IManufacturer manufacturer)
         {
-            _manufacturers.Add(manufacturer);
+            _manufacturers.AddLast(manufacturer);
         }
 
         public void AddManufs(Collection<IManufacturer> manufacturers)
         {
-            _manufacturers.AddRange(manufacturers);
+            foreach(var m in manufacturers)
+            {
+                _manufacturers.AddLast(m);
+            }
         }
 
         public void AddProduct(IProduct product)
         {
-            _products.Add(product);
+            _products.AddLast(product);
         }
 
         public void AddProducts(Collection<IProduct> products)
         {
-            _products.AddRange(products);
+            foreach (var p in products)
+            {
+                _products.AddLast(p);
+            }
         }
 
         public ICollection<IManufacturer> AllManufs()

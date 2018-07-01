@@ -2,6 +2,7 @@
 using Biderman.PwZal.CORE;
 using Biderman.PwZal.DAO;
 using System;
+using UI.Properties;
 
 namespace Biderman.PwZal.UI
 {
@@ -9,7 +10,7 @@ namespace Biderman.PwZal.UI
     {
         public static void Main(string[] args)
         {
-            IBL _bl = new BL.BuisnessLogic();
+            IBL _bl = new BuisnessLogic(Settings.Default.DataBaseAdress, Settings.Default.DataBaseName);
             char c = 'h';
             while (true)
             {

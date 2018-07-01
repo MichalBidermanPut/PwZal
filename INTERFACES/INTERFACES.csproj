@@ -45,12 +45,7 @@
     <Compile Include="IManufacturer.cs" />
     <Compile Include="IProduct.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\CORE\CORE.csproj">
-      <Project>{49854adc-ccf2-43d8-a207-e4d87c6f953f}</Project>
-      <Name>CORE</Name>
-    </ProjectReference>
+    <Compile Include="State.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

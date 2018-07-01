@@ -1,6 +1,9 @@
 ﻿using Biderman.PwZal.BL;
 using Biderman.PwZal.CORE;
+using GuiWpf.Properties;
+using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Windows.Input;
 
 namespace GuiWpf 
@@ -9,32 +12,96 @@ namespace GuiWpf
     {
         private IBL _bl;
         private ICollection<IManufacturer> _manufCollection;
-        private IManufacturer _currManuf;
-        private IManufacturer _tmpManuf;
         private ICollection<IProduct> _productCollection;
+        private IManufacturer _currManuf;
         private IProduct _currProduct;
+        private IManufacturer _tmpManuf;
         private IProduct _tmpProduct;
-        private bool _tmpProductHidden=true;
-        private bool _tmpManufHidden=true;
+        //private bool _tmpProductHidden=true;
+        //private bool _tmpManufHidden=true;
         public MainProgramView()
         {
-            _bl = new BuisnessLogic();
-            _manufCollection = _bl.GetAllManufs();
-            _productCollection = _bl.GetAllProducts();
+            _bl = new BuisnessLogic(Settings.Default.DataBaseAdress, Settings.Default.DataBaseName);
+            _manufCollection = new LinkedList<IManufacturer>(_bl.GetAllManufs());
+            _productCollection = new LinkedList<IProduct>(_bl.GetAllProducts());
             _currManuf = null;
             _currProduct = null;
-            _tmpManuf = null;
-            _tmpProduct = null;
+            _tmpManuf = new Manufacturer("");
+            _tmpProduct = new Product("");
         }
-        public ICommand ConvertTextCommand
+        public ICommand AddProductCommand
         {
             get { return new DelegateCommand(AddProduct); }
         }
         private void AddProduct()
         {
-            if(_tmpProduct!=null)
-            _bl.AddProduct(_tmpProduct);
+            if (_tmpProduct.Id < 0)
+            {
+                throw new ArgumentException("Negqtive Id");
+            }
+            else{
+                foreach(var e in _productCollection)
+                {
+                    if (e.Id== _tmpProduct.Id)
+                    {
+                        throw new ArgumentException("Repeated Id");
+                    }
+                }
+                _bl.AddProduct(_tmpProduct);
+                _productCollection = new LinkedList<IProduct>();
+                foreach (var e in _bl.GetAllProducts())
+                {
+                    _productCollection.Add(e);
+                }
+                RaisePropertyChangedEvent("ProductCollection");
+
+            }
+
         }
+        public ICommand RemoveProductCommand
+        {
+            get { return new DelegateCommand(RemoveProduct); }
+        }
+        private void RemoveProduct()
+        {
+            _bl.RemoveProduct(_tmpProduct);
+            _productCollection = new LinkedList<IProduct>();
+            foreach (var e in _bl.GetAllProducts())
+            {
+                _productCollection.Add(e);
+            }
+            RaisePropertyChangedEvent("ProductCollection");
+        }
+        public ICommand AddManufCommand
+        {
+            get { return new DelegateCommand(AddManuf); }
+        }
+        private void AddManuf()
+        {
+            _bl.AddManuf(_tmpManuf);
+            _manufCollection = new LinkedList<IManufacturer>();
+            foreach (var e in _bl.GetAllManufs())
+            {
+                _manufCollection.Add(e);
+            }
+            RaisePropertyChangedEvent("ManufCollection");
+
+        }
+        public ICommand RemoveManufCommand
+        {
+            get { return new DelegateCommand(RemoveManuf); }
+        }
+        private void RemoveManuf()
+        {
+            _bl.RemoveManuf(_tmpManuf);
+            _manufCollection = new LinkedList<IManufacturer>();
+            foreach(var e in _bl.GetAllManufs())
+            {
+                _manufCollection.Add(e);
+            }
+            RaisePropertyChangedEvent("ManufCollection");
+        }
+        public ObservableCollection<IManufacturer> ObsManufCollection = null;
         public ICollection<IManufacturer> ManufCollection
         {
             get
@@ -45,18 +112,6 @@ namespace GuiWpf
             {
                 _manufCollection = value;
                 RaisePropertyChangedEvent("ManufCollection");
-            }
-        }
-        public IManufacturer CurrManuf
-        {
-            get
-            {
-                return _currManuf;
-            }
-            set
-            {
-                _currManuf = value;
-                RaisePropertyChangedEvent("CurrManuf");
             }
         }
         public ICollection<IProduct> ProductCollection
@@ -71,6 +126,18 @@ namespace GuiWpf
                 RaisePropertyChangedEvent("ProductCollection");
             }
         }
+        public IManufacturer CurrManuf
+        {
+            get
+            {
+                return _currManuf;
+            }
+            set
+            {
+                _currManuf = value;
+                RaisePropertyChangedEvent("CurrManuf");
+            }
+        }
         public IProduct CurrProduct
         {
             get
@@ -83,50 +150,30 @@ namespace GuiWpf
                 RaisePropertyChangedEvent("CurrProduct");
             }
         }
-        /*
-        public ManufListView(ICollection<IManufacturer> ManufListIn)
+        public IManufacturer TmpManuf
         {
-            _manufList = ManufListIn;
-            _currManuf = _manufList.First();
-        }
-        public ManufListView()
-        {
-            _manufList = null;
-            _currManuf = null;
-        }
-        * /
-        //private readonly TextConverter _textConverter = new TextConverter(s => s.ToUpper());
-        private string _someText;
-        private readonly ObservableCollection<string> _history = new ObservableCollection<string>();
-
-        public string SomeText
-        {
-            get { return _someText; }
+            get
+            {
+                return _tmpManuf;
+            }
             set
             {
-                _someText = value;
-                RaisePropertyChangedEvent("SomeText");
+                _tmpManuf = value;
+                RaisePropertyChangedEvent("TmpManuf");
             }
         }
-
-        public IEnumerable<string> History
+        public IProduct TmpProduct
         {
-            get { return _history; }
+            get
+            {
+                return _tmpProduct;
+            }
+            set
+            {
+                _tmpProduct = value;
+                RaisePropertyChangedEvent("TmpProduct");
+            }
         }
-
-        private void ConvertText()
-        {
-            if (string.IsNullOrWhiteSpace(SomeText)) return;
-            //AddToHistory(_textConverter.ConvertText(SomeText));
-            SomeText = string.Empty;
-        }
-
-        private void AddToHistory(string item)
-        {
-            if (!_history.Contains(item))
-                _history.Add(item);
-        }
-        */
 
     }
 

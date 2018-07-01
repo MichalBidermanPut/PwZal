@@ -42,8 +42,6 @@
   <ItemGroup>
     <Compile Include="DAOMock.cs" />
     <Compile Include="DAOMock2.cs" />
-    <Compile Include="Manufacturer.cs" />
-    <Compile Include="Product.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -3,17 +3,16 @@ using System.Collections.Generic;
 using System.Reflection;
 using Biderman.PwZal.CORE;
 using Biderman.PwZal.DAO;
-using BL.Properties;
 
 namespace Biderman.PwZal.BL
 {
     public class BuisnessLogic : IBL
     {
         private IDAO _dao;
-        public BuisnessLogic()
+        public BuisnessLogic(String DataBaseAdress, String DataBaseName)
         {
-            Assembly a = Assembly.UnsafeLoadFrom(Settings.Default.DataBaseAdress);
-            Type dao_class = a.GetType(Settings.Default.DataBaseName);
+            Assembly a = Assembly.UnsafeLoadFrom(DataBaseAdress);
+            Type dao_class = a.GetType(DataBaseName);
             _dao = (IDAO)Activator.CreateInstance(dao_class, new object[] {});
 
         }

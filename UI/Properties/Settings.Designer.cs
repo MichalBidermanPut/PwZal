@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace BL.Properties {
+namespace UI.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
@@ -25,7 +25,7 @@ namespace BL.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("C:\\Users\\szmii\\Documents\\GitHub\\PwZal\\DAO\\bin\\Debug\\DAO.dll")]
+        [global::System.Configuration.DefaultSettingValueAttribute("C:\\Users\\szmii\\Documents\\GitHub\\PwZal\\DAO\\bin\\Release\\DAO.dll")]
         public string DataBaseAdress {
             get {
                 return ((string)(this["DataBaseAdress"]));

@@ -24,7 +24,7 @@
                     </Grid.ColumnDefinitions>
 
                     <ListBox x:Name="ManufList" HorizontalContentAlignment="Stretch" SelectionMode="Extended" Grid.Row="0" Grid.Column="0" 
-                             ItemsSource="{Binding ManufCollection}" SelectedItem="{Binding CurrManuf, Mode=TwoWay}">
+                             ItemsSource="{Binding ManufCollection}" SelectedItem="{Binding CurrManuf}">
                         <ListBox.ItemTemplate>
                             <DataTemplate>
                                 <Grid Name="ManufRowTemplate">
@@ -46,13 +46,36 @@
                         </Grid.ColumnDefinitions>
                         <Grid.RowDefinitions>
                             <RowDefinition Height="20" />
+                            <RowDefinition Height="20" />
                             <RowDefinition Height="20"/>
+                            <RowDefinition Height="50"/>
+                            <RowDefinition Height="20"/>
+                            <RowDefinition Height="20"/>
+                            <RowDefinition Height="20"/>
+                            <RowDefinition Height="50"/>
+                            <RowDefinition Height="50"/>
                             <RowDefinition/>
                         </Grid.RowDefinitions>
-                        <TextBlock Text="Id:" Grid.Row="0" Grid.Column="0" />
-                        <TextBlock Text="{Binding CurrManuf.Id}" Grid.Row="0" Grid.Column="1" />
-                        <TextBlock Text="Nazwa:" Grid.Row="1" Grid.Column="0" />
-                        <TextBox Text="{Binding CurrManuf.Nazwa}" Grid.Row="1" Grid.Column="1" />
+                        <TextBlock Text="Wybrany Producent:" Grid.Row="0" Grid.Column="1" />
+                        <TextBlock Text="Id:" Grid.Row="1" Grid.Column="0" />
+                        <TextBlock Text="{Binding CurrManuf.Id}" Grid.Row="1" Grid.Column="1" />
+                        <TextBlock Text="Nazwa:" Grid.Row="2" Grid.Column="0" />
+                        <TextBlock Text="{Binding CurrManuf.Nazwa}" Grid.Row="2" Grid.Column="1" />
+                        <Grid Grid.Row="3" Grid.Column="1" >
+                            <Grid Width="80" Height="40" HorizontalAlignment="Right" VerticalAlignment="Top">
+                                <Button Command="{Binding RemoveManufCommand, ValidatesOnExceptions=True}" Content="Remove" Width="60" Height="25"/>
+                            </Grid>
+                        </Grid>
+                        <TextBlock Text="Nowy Producent:" Grid.Row="4" Grid.Column="1" />
+                        <TextBlock Text="Id:" Grid.Row="5" Grid.Column="0" />
+                        <TextBox Text="{Binding TmpManuf.Id}" Grid.Row="5" Grid.Column="1" />
+                        <TextBlock Text="Nazwa:" Grid.Row="6" Grid.Column="0" />
+                        <TextBox Text="{Binding TmpManuf.Nazwa}" Grid.Row="6" Grid.Column="1" />
+                        <Grid Grid.Row="8" Grid.Column="1" >
+                            <Grid Width="80" Height="40" HorizontalAlignment="Right" VerticalAlignment="Top">
+                                <Button Command="{Binding AddManufCommand, ValidatesOnExceptions=True}" Content="Add" Width="60" Height="25"/>
+                            </Grid>
+                        </Grid>
                     </Grid>
                 </Grid>
             </TabItem>
@@ -67,7 +90,7 @@
                     </Grid.ColumnDefinitions>
 
                     <ListBox x:Name="ProductList" HorizontalContentAlignment="Stretch" SelectionMode="Extended" Grid.Row="0" Grid.Column="0" 
-                             ItemsSource="{Binding ProductCollection}" SelectedItem="{Binding CurrProduct, Mode=TwoWay}">
+                             ItemsSource="{Binding ProductCollection}" SelectedItem="{Binding CurrProduct}">
                         <ListBox.ItemTemplate>
                             <DataTemplate>
                                 <Grid Name="ProductRowTemplate">
@@ -89,13 +112,41 @@
                         </Grid.ColumnDefinitions>
                         <Grid.RowDefinitions>
                             <RowDefinition Height="20" />
+                            <RowDefinition Height="20" />
                             <RowDefinition Height="20"/>
-                            <RowDefinition/>
+                            <RowDefinition Height="20"/>
+                            <RowDefinition Height="50"/>
+                            <RowDefinition Height="20"/>
+                            <RowDefinition Height="20"/>
+                            <RowDefinition Height="20"/>
+                            <RowDefinition Height="20"/>
+                            <RowDefinition Height="50"/>
+                            <RowDefinition Height="50"/>
                         </Grid.RowDefinitions>
-                        <TextBlock Text="Id:" Grid.Row="0" Grid.Column="0" />
-                        <TextBlock Text="{Binding CurrProduct.Id, Mode=TwoWay}" Grid.Row="0" Grid.Column="1" />
-                        <TextBlock Text="Nazwa:" Grid.Row="1" Grid.Column="0" />
-                        <TextBox Text="{Binding CurrProduct.Nazwa, Mode=TwoWay}" Grid.Row="1" Grid.Column="1" />
+                        <TextBlock Text="Wybrany Produkt:" Grid.Row="0" Grid.Column="1" />
+                        <TextBlock Text="Id:" Grid.Row="1" Grid.Column="0" />
+                        <TextBlock Text="{Binding CurrProduct.Id, Mode=TwoWay}" Grid.Row="1" Grid.Column="1" />
+                        <TextBlock Text="Nazwa:" Grid.Row="2" Grid.Column="0" />
+                        <TextBlock Text="{Binding CurrProduct.Nazwa, Mode=TwoWay}" Grid.Row="2" Grid.Column="1" />
+                        <TextBlock Text="Stan:" Grid.Row="3" Grid.Column="0"/>
+                        <TextBlock Text="{Binding CurrProduct.Stan}" Grid.Row="3" Grid.Column="1" />
+                        <Grid Grid.Row="4" Grid.Column="1" >
+                            <Grid Width="80" Height="40" HorizontalAlignment="Right" VerticalAlignment="Top">
+                                <Button Command="{Binding RemoveProductCommand, ValidatesOnExceptions=True}" Content="Remove" Width="60" Height="25"/>
+                            </Grid>
+                        </Grid>
+                        <TextBlock Text="Nowy Element:" Grid.Row="5" Grid.Column="1" />
+                        <TextBlock Text="Id:" Grid.Row="6" Grid.Column="0" />
+                        <TextBox Text="{Binding TmpProduct.Id, Mode=TwoWay}" Grid.Row="6" Grid.Column="1" />
+                        <TextBlock Text="Nazwa:" Grid.Row="7" Grid.Column="0" />
+                        <TextBox Text="{Binding TmpProduct.Nazwa, Mode=TwoWay}" Grid.Row="7" Grid.Column="1" />
+                        <TextBlock Text="Stan:" Grid.Row="8" Grid.Column="0" />
+                        <TextBox Text="{Binding TmpProduct.Stan}" Grid.Row="8" Grid.Column="1" />
+                        <Grid Grid.Row="9" Grid.Column="1" >
+                            <Grid Width="80" Height="40" HorizontalAlignment="Right" VerticalAlignment="Top">
+                                <Button Command="{Binding AddProductCommand, ValidatesOnExceptions=True}" Content="Add" Width="60" Height="25"/>
+                            </Grid>
+                        </Grid>
                     </Grid>
                 </Grid>
             </TabItem>

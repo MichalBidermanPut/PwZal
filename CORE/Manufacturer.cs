@@ -1,6 +1,6 @@
 ﻿using Biderman.PwZal.CORE;
 
-namespace Biderman.PwZal.DAO
+namespace Biderman.PwZal.CORE
 {
     public class Manufacturer :IManufacturer
     {
